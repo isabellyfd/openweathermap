@@ -9,25 +9,36 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let handlerResquest = WeatherRequestHandler()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    
-        handlerResquest.requestOpenWeatherWithCoordenates(latitude: 35, longitude: 139) { (cities, error) in
-           
-            for city in cities! {
-                print(city.name)
-            }
-        }
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        Facade.shared.register(weatherRequestDelegate: self)
+        
+        Facade.shared.requestAroundCitiesWithCoordinate(latitude: 35, longitude: 139)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
 
+}
+
+extension ViewController : WeatherRequestDelegate {
+    
+    func appDidReceiveData(cities: [City]) {
+        for city in cities {
+            print(city.name)
+        }
+    }
+    
+    func appDidReceiveError(error: Error) {
+        print(error)
+    }
 }
 

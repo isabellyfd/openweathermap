@@ -12,7 +12,18 @@ import Alamofire
 class WeatherRequestHandler {
     private let API_KEY = "b4ff35ec7191db2c609baaef41b506b3"
     
-    func requestOpenWeatherWithCoordenates(latitude: Double, longitude: Double, callback: @escaping (([City]?, Error?) ->()) ) {
+    private var _weatherRequestDelegate : WeatherRequestDelegate!
+    
+    var weatherRequestDelegate : WeatherRequestDelegate {
+        get{
+            return self._weatherRequestDelegate
+        }
+        set(delegate){
+            self._weatherRequestDelegate = delegate
+        }
+    }
+    
+    func requestOpenWeatherWithCoordenates(latitude: Double, longitude: Double)  {
         
         let url = getFinalURLRequest(latitude: latitude, longitude: longitude);
         
@@ -23,10 +34,10 @@ class WeatherRequestHandler {
             case Result.success(let value):
                 let cities : [City] = self.parserJSON(json: value)
                 
-                callback(cities, nil);
+                self.weatherRequestDelegate.appDidReceiveData(cities: cities)
                 break
             case Result.failure(let error):
-                callback(nil, error);
+                self.weatherRequestDelegate.appDidReceiveError(error: error)
                 break
             }
             
@@ -55,8 +66,6 @@ class WeatherRequestHandler {
             let weatherDescription = weatherDictionary[0]["description"] as! String
             
             let name = city["name"] as! String
-            
-            print( name, minTemperature, maxTemperature, weatherDescription)
             cities.append(setCity(WithName: name, maxTemperature: maxTemperature, minTemperature: minTemperature, weatherDescription: weatherDescription))
             
         }
