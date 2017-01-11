@@ -15,9 +15,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     
-        handlerResquest.requestOpenWeatherWithCoordenates(latitude: 35, longitude: 139) { (json, error) in
+        handlerResquest.requestOpenWeatherWithCoordenates(latitude: 35, longitude: 139) { (cities, error) in
            
-            
+            for city in cities! {
+                print(city.name)
+            }
         }
     }
 

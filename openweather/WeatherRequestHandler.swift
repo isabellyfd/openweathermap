@@ -12,7 +12,7 @@ import Alamofire
 class WeatherRequestHandler {
     private let API_KEY = "b4ff35ec7191db2c609baaef41b506b3"
     
-    func requestOpenWeatherWithCoordenates(latitude: Double, longitude: Double, callback: @escaping ((Any?, Error?) ->()) ) {
+    func requestOpenWeatherWithCoordenates(latitude: Double, longitude: Double, callback: @escaping (([City]?, Error?) ->()) ) {
         
         let url = getFinalURLRequest(latitude: latitude, longitude: longitude);
         
@@ -21,8 +21,9 @@ class WeatherRequestHandler {
             
             switch response.result {
             case Result.success(let value):
-                print(value)
-                callback(value, nil);
+                let cities : [City] = self.parserJSON(json: value)
+                
+                callback(cities, nil);
                 break
             case Result.failure(let error):
                 callback(nil, error);
@@ -38,8 +39,41 @@ class WeatherRequestHandler {
         return urlRequest;
     }
     
-    fileprivate func parserJSON(json: Any){
+    fileprivate func parserJSON(json: Any) -> [City]{
+        var cities : [City] = []
         
+        let dictionary = json as! Dictionary<String, Any>
+        
+        let cityGroup = dictionary["list"] as! [Dictionary<String, Any>]
+        
+        for city in cityGroup {
+            let main = city["main"] as! Dictionary<String, Any>
+            let maxTemperature = main["temp_max"] as! Double
+            let minTemperature = main["temp_min"] as! Double
+            
+            let weatherDictionary = city["weather"] as! [Dictionary<String, Any>]
+            let weatherDescription = weatherDictionary[0]["description"] as! String
+            
+            let name = city["name"] as! String
+            
+            print( name, minTemperature, maxTemperature, weatherDescription)
+            cities.append(setCity(WithName: name, maxTemperature: maxTemperature, minTemperature: minTemperature, weatherDescription: weatherDescription))
+            
+        }
+        return cities
+    }
+    
+    fileprivate func setCity(WithName name: String, maxTemperature max: Double, minTemperature min: Double, weatherDescription description: String) -> City{
+        let weather = Weather()
+        weather.maxTemperature = max
+        weather.minTemperature = min
+        weather.weatherDescription = description
+        
+        let city = City()
+        city.name = name
+        city.weather = weather
+        
+        return city
     }
     
 }

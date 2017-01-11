@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "WeatherRequestHandler.(requestOpenWeatherWithCoordenates(latitude : Double, longitude : Double, callback : (Any?, Error?) -&gt; ()) -&gt; ()).(closure #1):WeatherRequestHandler.swift">
+      </ContextState>
+      <ContextState
+         contextName = "WeatherRequestHandler.parserJSON(json : Any) -&gt; ():WeatherRequestHandler.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "city[&quot;weather&quot;] as! [Dictionary&lt;String, Any&gt;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
