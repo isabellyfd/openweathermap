@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD92412D1E25C000005B62D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92412C1E25C000005B62D2 /* AppDelegate.swift */; };
+		DD92412F1E25C000005B62D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92412E1E25C000005B62D2 /* ViewController.swift */; };
+		DD9241321E25C000005B62D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9241301E25C000005B62D2 /* Main.storyboard */; };
+		DD9241341E25C000005B62D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD9241331E25C000005B62D2 /* Assets.xcassets */; };
+		DD92413F1E25C001005B62D2 /* openheathermapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92413E1E25C001005B62D2 /* openheathermapTests.swift */; };
+		DD92414A1E25C001005B62D2 /* openheathermapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9241491E25C001005B62D2 /* openheathermapUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD92413B1E25C001005B62D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD9241211E25C000005B62D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD9241281E25C000005B62D2;
+			remoteInfo = openheathermap;
+		};
+		DD9241461E25C001005B62D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD9241211E25C000005B62D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD9241281E25C000005B62D2;
+			remoteInfo = openheathermap;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DD9241291E25C000005B62D2 /* openheathermap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openheathermap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD92412C1E25C000005B62D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD92412E1E25C000005B62D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DD9241311E25C000005B62D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD9241331E25C000005B62D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD9241351E25C000005B62D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD92413A1E25C001005B62D2 /* openheathermapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = openheathermapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD92413E1E25C001005B62D2 /* openheathermapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = openheathermapTests.swift; sourceTree = "<group>"; };
+		DD9241401E25C001005B62D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD9241451E25C001005B62D2 /* openheathermapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = openheathermapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD9241491E25C001005B62D2 /* openheathermapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = openheathermapUITests.swift; sourceTree = "<group>"; };
+		DD92414B1E25C001005B62D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD9241261E25C000005B62D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD9241371E25C001005B62D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD9241421E25C001005B62D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD9241201E25C000005B62D2 = {
+			isa = PBXGroup;
+			children = (
+				DD92412B1E25C000005B62D2 /* openheathermap */,
+				DD92413D1E25C001005B62D2 /* openheathermapTests */,
+				DD9241481E25C001005B62D2 /* openheathermapUITests */,
+				DD92412A1E25C000005B62D2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DD92412A1E25C000005B62D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD9241291E25C000005B62D2 /* openheathermap.app */,
+				DD92413A1E25C001005B62D2 /* openheathermapTests.xctest */,
+				DD9241451E25C001005B62D2 /* openheathermapUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD92412B1E25C000005B62D2 /* openheathermap */ = {
+			isa = PBXGroup;
+			children = (
+				DD92412C1E25C000005B62D2 /* AppDelegate.swift */,
+				DD92412E1E25C000005B62D2 /* ViewController.swift */,
+				DD9241301E25C000005B62D2 /* Main.storyboard */,
+				DD9241331E25C000005B62D2 /* Assets.xcassets */,
+				DD9241351E25C000005B62D2 /* Info.plist */,
+			);
+			path = openheathermap;
+			sourceTree = "<group>";
+		};
+		DD92413D1E25C001005B62D2 /* openheathermapTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD92413E1E25C001005B62D2 /* openheathermapTests.swift */,
+				DD9241401E25C001005B62D2 /* Info.plist */,
+			);
+			path = openheathermapTests;
+			sourceTree = "<group>";
+		};
+		DD9241481E25C001005B62D2 /* openheathermapUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DD9241491E25C001005B62D2 /* openheathermapUITests.swift */,
+				DD92414B1E25C001005B62D2 /* Info.plist */,
+			);
+			path = openheathermapUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD9241281E25C000005B62D2 /* openheathermap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD92414E1E25C001005B62D2 /* Build configuration list for PBXNativeTarget "openheathermap" */;
+			buildPhases = (
+				DD9241251E25C000005B62D2 /* Sources */,
+				DD9241261E25C000005B62D2 /* Frameworks */,
+				DD9241271E25C000005B62D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = openheathermap;
+			productName = openheathermap;
+			productReference = DD9241291E25C000005B62D2 /* openheathermap.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DD9241391E25C001005B62D2 /* openheathermapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD9241511E25C001005B62D2 /* Build configuration list for PBXNativeTarget "openheathermapTests" */;
+			buildPhases = (
+				DD9241361E25C001005B62D2 /* Sources */,
+				DD9241371E25C001005B62D2 /* Frameworks */,
+				DD9241381E25C001005B62D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD92413C1E25C001005B62D2 /* PBXTargetDependency */,
+			);
+			name = openheathermapTests;
+			productName = openheathermapTests;
+			productReference = DD92413A1E25C001005B62D2 /* openheathermapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD9241441E25C001005B62D2 /* openheathermapUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD9241541E25C001005B62D2 /* Build configuration list for PBXNativeTarget "openheathermapUITests" */;
+			buildPhases = (
+				DD9241411E25C001005B62D2 /* Sources */,
+				DD9241421E25C001005B62D2 /* Frameworks */,
+				DD9241431E25C001005B62D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD9241471E25C001005B62D2 /* PBXTargetDependency */,
+			);
+			name = openheathermapUITests;
+			productName = openheathermapUITests;
+			productReference = DD9241451E25C001005B62D2 /* openheathermapUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD9241211E25C000005B62D2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Isabelly Damascena";
+				TargetAttributes = {
+					DD9241281E25C000005B62D2 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 3NUJTPYY6R;
+						ProvisioningStyle = Automatic;
+					};
+					DD9241391E25C001005B62D2 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 3NUJTPYY6R;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DD9241281E25C000005B62D2;
+					};
+					DD9241441E25C001005B62D2 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 3NUJTPYY6R;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DD9241281E25C000005B62D2;
+					};
+				};
+			};
+			buildConfigurationList = DD9241241E25C000005B62D2 /* Build configuration list for PBXProject "openheathermap" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD9241201E25C000005B62D2;
+			productRefGroup = DD92412A1E25C000005B62D2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD9241281E25C000005B62D2 /* openheathermap */,
+				DD9241391E25C001005B62D2 /* openheathermapTests */,
+				DD9241441E25C001005B62D2 /* openheathermapUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD9241271E25C000005B62D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD9241341E25C000005B62D2 /* Assets.xcassets in Resources */,
+				DD9241321E25C000005B62D2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD9241381E25C001005B62D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD9241431E25C001005B62D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD9241251E25C000005B62D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD92412F1E25C000005B62D2 /* ViewController.swift in Sources */,
+				DD92412D1E25C000005B62D2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD9241361E25C001005B62D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD92413F1E25C001005B62D2 /* openheathermapTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD9241411E25C001005B62D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD92414A1E25C001005B62D2 /* openheathermapUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD92413C1E25C001005B62D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD9241281E25C000005B62D2 /* openheathermap */;
+			targetProxy = DD92413B1E25C001005B62D2 /* PBXContainerItemProxy */;
+		};
+		DD9241471E25C001005B62D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD9241281E25C000005B62D2 /* openheathermap */;
+			targetProxy = DD9241461E25C001005B62D2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DD9241301E25C000005B62D2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD9241311E25C000005B62D2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DD92414C1E25C001005B62D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+			};
+			name = Debug;
+		};
+		DD92414D1E25C001005B62D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DD92414F1E25C001005B62D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 3NUJTPYY6R;
+				INFOPLIST_FILE = openheathermap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.bepid.openheathermap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DD9241501E25C001005B62D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 3NUJTPYY6R;
+				INFOPLIST_FILE = openheathermap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.bepid.openheathermap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		DD9241521E25C001005B62D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3NUJTPYY6R;
+				INFOPLIST_FILE = openheathermapTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.bepid.openheathermapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/openheathermap.app/openheathermap";
+			};
+			name = Debug;
+		};
+		DD9241531E25C001005B62D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3NUJTPYY6R;
+				INFOPLIST_FILE = openheathermapTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.bepid.openheathermapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/openheathermap.app/openheathermap";
+			};
+			name = Release;
+		};
+		DD9241551E25C001005B62D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 3NUJTPYY6R;
+				INFOPLIST_FILE = openheathermapUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.bepid.openheathermapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = openheathermap;
+			};
+			name = Debug;
+		};
+		DD9241561E25C001005B62D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 3NUJTPYY6R;
+				INFOPLIST_FILE = openheathermapUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.bepid.openheathermapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = openheathermap;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD9241241E25C000005B62D2 /* Build configuration list for PBXProject "openheathermap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD92414C1E25C001005B62D2 /* Debug */,
+				DD92414D1E25C001005B62D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD92414E1E25C001005B62D2 /* Build configuration list for PBXNativeTarget "openheathermap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD92414F1E25C001005B62D2 /* Debug */,
+				DD9241501E25C001005B62D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DD9241511E25C001005B62D2 /* Build configuration list for PBXNativeTarget "openheathermapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD9241521E25C001005B62D2 /* Debug */,
+				DD9241531E25C001005B62D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DD9241541E25C001005B62D2 /* Build configuration list for PBXNativeTarget "openheathermapUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD9241551E25C001005B62D2 /* Debug */,
+				DD9241561E25C001005B62D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD9241211E25C000005B62D2 /* Project object */;
+}
