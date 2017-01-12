@@ -7,14 +7,14 @@
 //
 
 import Foundation
-
+import CoreLocation
 class Facade {
     let requestHandler = WeatherRequestHandler()
     
     static let shared = Facade()
     
-    public func requestAroundCitiesWithCoordinate(latitude: Double, longitude: Double){
-        self.requestHandler.requestOpenWeatherWithCoordenates(latitude: latitude, longitude: longitude)
+    public func requestAroundCitiesWithCoordinate(coordinate: CLLocationCoordinate2D){
+        self.requestHandler.requestOpenWeatherWithCoordenates(coordinate: coordinate)
     }
     
     public func register(weatherRequestDelegate delegate: WeatherRequestDelegate){

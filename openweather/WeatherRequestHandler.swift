@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import CoreLocation
 
 class WeatherRequestHandler {
     private let API_KEY = "b4ff35ec7191db2c609baaef41b506b3"
@@ -32,17 +33,18 @@ class WeatherRequestHandler {
         }
     }
     
-    func requestOpenWeatherWithCoordenates(latitude: Double, longitude: Double)  {
+    func requestOpenWeatherWithCoordenates(coordinate: CLLocationCoordinate2D)  {
         
-        let url = getFinalURLRequest(latitude: latitude, longitude: longitude);
+        let url = getFinalURLRequest(coordinate: coordinate);
         
         Alamofire.request(url).responseJSON(completionHandler: {
             response in
             
             switch response.result {
+                
             case Result.success(let value):
                 let cities : [City] = self.parserJSON(json: value)
-                
+                print(value)
                 self.weatherRequestDelegate.appDidReceiveData(cities: cities)
                 break
             case Result.failure(let error):
@@ -53,9 +55,9 @@ class WeatherRequestHandler {
         })
     }
     
-    fileprivate func getFinalURLRequest(latitude: Double, longitude: Double) -> String{
+    fileprivate func getFinalURLRequest(coordinate: CLLocationCoordinate2D) -> String{
         
-        let urlRequest = "http://api.openweathermap.org/data/2.5/find?lat=\(latitude)&lon=\(longitude)&cnt=15&APPID=\(API_KEY)"
+        let urlRequest = "http://api.openweathermap.org/data/2.5/find?lat=\(coordinate.latitude)&lon=\(coordinate.longitude)&cnt=15&APPID=\(API_KEY)"
         return urlRequest;
     }
     
@@ -93,5 +95,7 @@ class WeatherRequestHandler {
         
         return city
     }
+    
+    
     
 }

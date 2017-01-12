@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-import CoreLocation
+
 
 class MapViewController: UIViewController {
     
@@ -16,18 +16,20 @@ class MapViewController: UIViewController {
     
     var locationManager : CLLocationManager!
     var pin : MKPointAnnotation!
+    var pressedCoordinate : CLLocationCoordinate2D!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
+        
+        Facade.shared.register(weatherRequestDelegate: self)
+        
         map.delegate = self
-        map.showsUserLocation = true
+        //map.showsUserLocation = true
         
         locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        
+        locationManager.requestAlwaysAuthorization()
         pin = MKPointAnnotation()
     }
     
@@ -40,27 +42,51 @@ class MapViewController: UIViewController {
 
     
     @IBAction func searchButtonClicked(_ sender: Any) {
-    }
-
-}
-
-extension MapViewController : CLLocationManagerDelegate {
-    
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedWhenInUse {
-            locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
-            locationManager.startUpdatingLocation()
-            
+        if (self.pressedCoordinate != nil){
+            Facade.shared.requestAroundCitiesWithCoordinate(coordinate: self.pressedCoordinate)
         }
     }
-}
 
-extension MapViewController : MKMapViewDelegate {
+    @IBAction func logPressGesture(_ sender: Any) {
+        let gesture = sender as! UIGestureRecognizer
+        
+        if gesture.state != UIGestureRecognizerState.began {
+            return
+        }
+        let touchLocation = gesture.location(in: self.map)
+        self.pressedCoordinate = self.map.convert(touchLocation, toCoordinateFrom: self.map)
+        
+        print(pressedCoordinate)
+
+        self.addAnnotationToView()
+        
+    }
+  
     
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800)
-        self.map.setRegion(region, animated: true)
+    func addAnnotationToView() {
+        if self.pin != nil {
+            self.map.removeAnnotation(self.pin)
+        }
+        
+        self.pin = MKPointAnnotation()
+        self.pin.coordinate  = self.pressedCoordinate
+        self.map.addAnnotation(self.pin)
     }
 }
 
+
+
+
+extension MapViewController : WeatherRequestDelegate {
+    
+    func appDidReceiveData(cities: [City]) {
+        
+        for city in cities {
+            print(city.name)
+        }
+    }
+    
+    func appDidReceiveError(error: Error) {
+        print(error)
+    }
+}
