@@ -11,6 +11,15 @@ import Alamofire
 
 class WeatherRequestHandler {
     private let API_KEY = "b4ff35ec7191db2c609baaef41b506b3"
+    private let LIST = "list"
+    private let MAIN = "main"
+    private let MAX_TEMPERATURE = "temp_max"
+    private let MIN_TEMPERATURE = "temp_min"
+    private let WEATHER = "weather"
+    private let DATA_INDEX = 0
+    private let DESCRIPTION = "description"
+    private let NAME = "name"
+    
     
     private var _weatherRequestDelegate : WeatherRequestDelegate!
     
@@ -55,17 +64,17 @@ class WeatherRequestHandler {
         
         let dictionary = json as! Dictionary<String, Any>
         
-        let cityGroup = dictionary["list"] as! [Dictionary<String, Any>]
+        let cityGroup = dictionary[LIST] as! [Dictionary<String, Any>]
         
         for city in cityGroup {
-            let main = city["main"] as! Dictionary<String, Any>
-            let maxTemperature = main["temp_max"] as! Double
-            let minTemperature = main["temp_min"] as! Double
+            let main = city[MAIN] as! Dictionary<String, Any>
+            let maxTemperature = main[MAX_TEMPERATURE] as! Double
+            let minTemperature = main[MIN_TEMPERATURE] as! Double
             
-            let weatherDictionary = city["weather"] as! [Dictionary<String, Any>]
-            let weatherDescription = weatherDictionary[0]["description"] as! String
+            let weatherDictionary = city[WEATHER] as! [Dictionary<String, Any>]
+            let weatherDescription = weatherDictionary[DATA_INDEX][DESCRIPTION] as! String
             
-            let name = city["name"] as! String
+            let name = city[NAME] as! String
             cities.append(setCity(WithName: name, maxTemperature: maxTemperature, minTemperature: minTemperature, weatherDescription: weatherDescription))
             
         }
