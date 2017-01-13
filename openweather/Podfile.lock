@@ -1,12 +1,15 @@
 PODS:
   - Alamofire (4.2.0)
+  - InLocoMedia-Ads-SDK (2.3.5)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - InLocoMedia-Ads-SDK (~> 2.3.5)
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  InLocoMedia-Ads-SDK: c0cc92b9e9172df4853a70e53b9c401ca3ab1b94
 
-PODFILE CHECKSUM: c552686213270d208afb4bb86c2e3601c8667ed2
+PODFILE CHECKSUM: 8921196889e844fb3c944f35a20ab1186bf9e5e9
 
 COCOAPODS: 1.1.1

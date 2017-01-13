@@ -7,7 +7,8 @@ target 'openweather' do
 
   # Pods for openweather
   pod 'Alamofire', '~> 4.0'
-
+  pod 'InLocoMedia-Ads-SDK', '~> 2.3.5'
+  
   target 'openweatherTests' do
     inherit! :search_paths
     # Pods for testing
