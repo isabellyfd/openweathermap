@@ -28,7 +28,7 @@ class Weather {
             return self._maxTemperature
         }
         set (newMaxTemperature){
-            self._maxTemperature = self.transformFahrenheitToCelcius(fahrenheitTemperature: newMaxTemperature)
+            self._maxTemperature = self.transformKelvinToCelcius(kelvinTemperature: newMaxTemperature)
         }
     }
     
@@ -37,14 +37,15 @@ class Weather {
             return self._minTemperature
         }
         set (newMinTemperature){
-            self._minTemperature = self.transformFahrenheitToCelcius(fahrenheitTemperature: newMinTemperature)
+            self._minTemperature = self.transformKelvinToCelcius(kelvinTemperature: newMinTemperature)
+
         }
         
     }
     
     
-    fileprivate func transformFahrenheitToCelcius(fahrenheitTemperature: Double) -> Double{
-        let celciusTemperature: Double = ((fahrenheitTemperature - 32)/1.8)
+    fileprivate func transformKelvinToCelcius(kelvinTemperature: Double) -> Double{
+        let celciusTemperature: Double = (kelvinTemperature - 273.0)
         return celciusTemperature;
     }
 }

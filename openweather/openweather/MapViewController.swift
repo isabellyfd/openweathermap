@@ -23,11 +23,6 @@ class MapViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        Facade.shared.register(weatherRequestDelegate: self)
-        
-        map.delegate = self
-        //map.showsUserLocation = true
-        
         locationManager = CLLocationManager()
         locationManager.requestAlwaysAuthorization()
         pin = MKPointAnnotation()
@@ -44,6 +39,7 @@ class MapViewController: UIViewController {
     @IBAction func searchButtonClicked(_ sender: Any) {
         if (self.pressedCoordinate != nil){
             Facade.shared.requestAroundCitiesWithCoordinate(coordinate: self.pressedCoordinate)
+            self.performSegue(withIdentifier: "showCityTableView", sender: self)
         }
     }
 
@@ -72,21 +68,14 @@ class MapViewController: UIViewController {
         self.pin.coordinate  = self.pressedCoordinate
         self.map.addAnnotation(self.pin)
     }
-}
-
-
-
-
-extension MapViewController : WeatherRequestDelegate {
     
-    func appDidReceiveData(cities: [City]) {
+    
+    @IBAction func unwindToMap(_ sender: UIStoryboardSegue){
         
-        for city in cities {
-            print(city.name)
-        }
-    }
-    
-    func appDidReceiveError(error: Error) {
-        print(error)
     }
 }
+
+
+
+
+

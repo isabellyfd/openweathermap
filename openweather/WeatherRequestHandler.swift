@@ -37,22 +37,26 @@ class WeatherRequestHandler {
         
         let url = getFinalURLRequest(coordinate: coordinate);
         
-        Alamofire.request(url).responseJSON(completionHandler: {
-            response in
-            
-            switch response.result {
+        
+        DispatchQueue.global().async {
+            Alamofire.request(url).responseJSON(completionHandler: {
+                response in
                 
-            case Result.success(let value):
-                let cities : [City] = self.parserJSON(json: value)
-                print(value)
-                self.weatherRequestDelegate.appDidReceiveData(cities: cities)
-                break
-            case Result.failure(let error):
-                self.weatherRequestDelegate.appDidReceiveError(error: error)
-                break
-            }
-            
-        })
+                switch response.result {
+                    
+                case Result.success(let value):
+                    let cities : [City] = self.parserJSON(json: value)
+                    print(value)
+                    self.weatherRequestDelegate.appDidReceiveData(cities: cities)
+                    break
+                case Result.failure(let error):
+                    self.weatherRequestDelegate.appDidReceiveError(error: error)
+                    break
+                }
+                
+            })
+        }
+        
     }
     
     fileprivate func getFinalURLRequest(coordinate: CLLocationCoordinate2D) -> String{
