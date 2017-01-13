@@ -12,6 +12,7 @@ class CitiesTableViewController : UIViewController {
     
     var cities : [City]!
     var selectedCity : City!
+    var indicator : UIActivityIndicatorView!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,7 +21,21 @@ class CitiesTableViewController : UIViewController {
         Facade.shared.register(weatherRequestDelegate: self)
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        self.setIndicatorToView()
+        self.indicator.startAnimating()
     }
+    
+    func setIndicatorToView() {
+        indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        indicator.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        indicator.center = self.view.center
+        self.view.addSubview(indicator)
+        self.indicator.bringSubview(toFront: self.view)
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -76,6 +91,8 @@ extension CitiesTableViewController : WeatherRequestDelegate {
     
     func appDidReceiveData(cities: [City]) {
         DispatchQueue.global().sync {
+            self.indicator.stopAnimating()
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.cities = cities
             self.tableView.reloadData()
         }
