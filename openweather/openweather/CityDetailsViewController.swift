@@ -17,7 +17,6 @@ class CityDetailsViewController: UIViewController {
     @IBOutlet weak var weatherDescription: UILabel!
     
     var city : City!
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +26,8 @@ class CityDetailsViewController: UIViewController {
         maxTemperatureLabel.text = city.weather.maxTemperature.format(f: ".1")
         minTemperatureLabel.text = city.weather.minTemperature.format(f: ".1")
         weatherDescription.text = city.weather.weatherDescription
+        
+
     }
     
     override func didReceiveMemoryWarning() {

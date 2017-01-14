@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import InLocoMediaAPI
 
 class CitiesTableViewController : UIViewController {
     
@@ -15,12 +16,18 @@ class CitiesTableViewController : UIViewController {
     
     let SHOW_DETAILS_SEGUE = "showDetails"
     
+    var newAd : ILMInterstitialAd!
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    var indicator : LoadIndicador!
     
     override func viewDidLoad(){
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        self.indicator = LoadIndicador(forParentView: self.view)
     }
     
     
@@ -44,6 +51,22 @@ class CitiesTableViewController : UIViewController {
     
     @IBAction func unwindToCitiesTableView(_ sender: UIStoryboardSegue){
         self.tableView.reloadData()
+        self.indicator.startLoading()
+        
+        self.newAd = ILMInterstitialAd()
+        
+        self.newAd.delegate = self
+        self.newAd.load()
+        
+        
+    }
+}
+
+extension CitiesTableViewController : ILMInterstitialAdDelegate {
+    
+    func ilmInterstitialAdDidReceive(_ interstitialAd: ILMInterstitialAd!) {
+        self.indicator.stopLoading()x
+         interstitialAd.present()
     }
 }
 

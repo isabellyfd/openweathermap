@@ -3,15 +3,26 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "WeatherRequestHandler.(requestOpenWeatherWithCoordenates(latitude : Double, longitude : Double, callback : (Any?, Error?) -&gt; ()) -&gt; ()).(closure #1):WeatherRequestHandler.swift">
-      </ContextState>
-      <ContextState
          contextName = "WeatherRequestHandler.parserJSON(json : Any) -&gt; ():WeatherRequestHandler.swift">
          <PersistentStrings>
             <PersistentString
                value = "city[&quot;weather&quot;] as! [Dictionary&lt;String, Any&gt;]">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CitiesTableViewController.unwindToCitiesTableView(UIStoryboardSegue) -&gt; ():CitiesTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "InLocoMedia.inlocomediaId()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WeatherRequestHandler.(requestOpenWeatherWithCoordenates(latitude : Double, longitude : Double, callback : (Any?, Error?) -&gt; ()) -&gt; ()).(closure #1):WeatherRequestHandler.swift">
+      </ContextState>
+      <ContextState
+         contextName = "LoadIndicador.init(forParentView : UIView) -&gt; LoadIndicador:LoadIndicator.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>
