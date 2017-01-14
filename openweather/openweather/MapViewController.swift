@@ -54,8 +54,6 @@ class MapViewController: UIViewController {
         if (self.pressedCoordinate != nil){
             Facade.shared.requestAroundCitiesWithCoordinate(coordinate: self.pressedCoordinate)
             self.indicator.startLoading()
-        }else {
-            self.showPinPopup()
         }
     }
 
@@ -89,7 +87,7 @@ class MapViewController: UIViewController {
     }
     
     func showPinPopup(){
-        let alertController = UIAlertController(title: "Be aware!", message: "Put a pin on map before start searching.", preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: "Welcome", message: "Long press to add a pin to the location.", preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
         
         alertController.addAction(okAction)
