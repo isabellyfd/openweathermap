@@ -18,12 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let options = ILMOptions()
-        options.logEnabled = true
-        options.developmentDevices = ["f0d4120c0a7d0538e78b4c8e5d16975d183b418f899ca5794bda2f8259b15486"]
-        options.adsKey = "3632ed24e0158716fd115a710ff042e53131404a28e234ade506221f9be89279"
-        
-        InLocoMedia.initWith(options)
+        InlocoInitializer.initAPI()
         
         return true
     }

@@ -16,7 +16,7 @@ class CitiesTableViewController : UIViewController {
     
     let SHOW_DETAILS_SEGUE = "showDetails"
     
-    var newAd : ILMInterstitialAd!
+    var newAd : LocalAd!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -41,7 +41,6 @@ class CitiesTableViewController : UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
         if segue.identifier == SHOW_DETAILS_SEGUE{
             let destinationViewController = segue.destination as! CityDetailsViewController
             destinationViewController.city = self.selectedCity
@@ -53,11 +52,8 @@ class CitiesTableViewController : UIViewController {
         self.tableView.reloadData()
         self.indicator.startLoading()
         
-        self.newAd = ILMInterstitialAd()
-        
-        self.newAd.delegate = self
+        self.newAd = LocalAd(forInterestialAdDelegate: self)
         self.newAd.load()
-        
         
     }
 }
@@ -65,8 +61,8 @@ class CitiesTableViewController : UIViewController {
 extension CitiesTableViewController : ILMInterstitialAdDelegate {
     
     func ilmInterstitialAdDidReceive(_ interstitialAd: ILMInterstitialAd!) {
-        self.indicator.stopLoading()x
-         interstitialAd.present()
+        self.indicator.stopLoading()
+        interstitialAd.present()
     }
 }
 
