@@ -12,29 +12,16 @@ class CitiesTableViewController : UIViewController {
     
     var cities : [City]!
     var selectedCity : City!
-    var indicator : UIActivityIndicatorView!
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        Facade.shared.register(weatherRequestDelegate: self)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.setIndicatorToView()
-        self.indicator.startAnimating()
     }
     
-    func setIndicatorToView() {
-        indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
-        indicator.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        indicator.center = self.view.center
-        self.view.addSubview(indicator)
-        self.indicator.bringSubview(toFront: self.view)
-        
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
     
     
     override func didReceiveMemoryWarning() {
@@ -48,14 +35,14 @@ class CitiesTableViewController : UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if segue.identifier == "showDetails"{
-            let destinationView = segue.destination as! CityDetailsViewController
-            destinationView.city = self.selectedCity
-            self.present(destinationView, animated: true, completion: nil)
+            let destinationViewController = segue.destination as! CityDetailsViewController
+            destinationViewController.city = self.selectedCity
+            self.present(destinationViewController, animated: true, completion: nil)
         }
     }
     
     @IBAction func unwindToCitiesTableView(_ sender: UIStoryboardSegue){
-        
+        self.tableView.reloadData()
     }
 }
 
@@ -87,18 +74,3 @@ extension CitiesTableViewController : UITableViewDelegate, UITableViewDataSource
     }
 }
 
-extension CitiesTableViewController : WeatherRequestDelegate {
-    
-    func appDidReceiveData(cities: [City]) {
-        DispatchQueue.global().sync {
-            self.indicator.stopAnimating()
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            self.cities = cities
-            self.tableView.reloadData()
-        }
-    }
-    
-    func appDidReceiveError(error: Error) {
-        print(error)
-    }
-}

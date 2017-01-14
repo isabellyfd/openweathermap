@@ -18,14 +18,19 @@ class MapViewController: UIViewController {
     var pin : MKPointAnnotation!
     var pressedCoordinate : CLLocationCoordinate2D!
     
+    var indicator : LoadIndicador!
+    var cities : [City]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view, typically from a nib.
+    
+        Facade.shared.register(weatherRequestDelegate: self)
         
         locationManager = CLLocationManager()
         locationManager.requestAlwaysAuthorization()
         pin = MKPointAnnotation()
+        
+        indicator = LoadIndicador(forParentView: self.map)
     }
     
    
@@ -39,7 +44,7 @@ class MapViewController: UIViewController {
     @IBAction func searchButtonClicked(_ sender: Any) {
         if (self.pressedCoordinate != nil){
             Facade.shared.requestAroundCitiesWithCoordinate(coordinate: self.pressedCoordinate)
-            self.performSegue(withIdentifier: "showCityTableView", sender: self)
+            self.indicator.startLoading()
         }
     }
 
@@ -75,6 +80,29 @@ class MapViewController: UIViewController {
     }
 }
 
+extension MapViewController : WeatherRequestDelegate{
+    func appDidReceiveData(cities: [City]) {
+        DispatchQueue.global().sync {
+            self.indicator.stopLoading()
+            self.cities = cities
+            self.performSegue(withIdentifier: "showCityTableView", sender: self)
+        }
+        
+    }
+    
+    func appDidReceiveError(error: Error) {
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showCityTableView" {
+            let destinationViewController = segue.destination as! CitiesTableViewController
+            destinationViewController.cities = self.cities
+            self.present(destinationViewController, animated: true, completion: nil)
+        }
+    }
+}
 
 
 
