@@ -33,8 +33,15 @@ class MapViewController: UIViewController {
         pin = MKPointAnnotation()
         
         indicator = LoadIndicador(forParentView: self.map)
+
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if !Defaults.userHasAlreadyAccess(){
+            Defaults.didAccess()
+            self.showPinPopup()
+        }
+    }
    
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +54,8 @@ class MapViewController: UIViewController {
         if (self.pressedCoordinate != nil){
             Facade.shared.requestAroundCitiesWithCoordinate(coordinate: self.pressedCoordinate)
             self.indicator.startLoading()
+        }else {
+            self.showPinPopup()
         }
     }
 
@@ -77,6 +86,14 @@ class MapViewController: UIViewController {
     
     @IBAction func unwindToMap(_ sender: UIStoryboardSegue){
         
+    }
+    
+    func showPinPopup(){
+        let alertController = UIAlertController(title: "Be aware!", message: "Put a pin on map before start searching.", preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
+        
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 

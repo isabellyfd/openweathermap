@@ -40,6 +40,6 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>As informações serão usadas somente para serviços do app.</string>
+	<string>The information collected is used only for this app&apos;s purposes</string>
 </dict>
 </plist>
