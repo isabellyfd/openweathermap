@@ -13,13 +13,14 @@ class CitiesTableViewController : UIViewController {
     var cities : [City]!
     var selectedCity : City!
     
+    let SHOW_DETAILS_SEGUE = "showDetails"
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad(){
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
     }
     
     
@@ -34,7 +35,7 @@ class CitiesTableViewController : UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
-        if segue.identifier == "showDetails"{
+        if segue.identifier == SHOW_DETAILS_SEGUE{
             let destinationViewController = segue.destination as! CityDetailsViewController
             destinationViewController.city = self.selectedCity
             self.present(destinationViewController, animated: true, completion: nil)
@@ -70,7 +71,7 @@ extension CitiesTableViewController : UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedCity = cities[indexPath.row]
-        self.performSegue(withIdentifier: "showDetails", sender: self)
+        self.performSegue(withIdentifier: SHOW_DETAILS_SEGUE, sender: self)
     }
 }
 

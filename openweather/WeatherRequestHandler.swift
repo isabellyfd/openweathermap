@@ -46,7 +46,6 @@ class WeatherRequestHandler {
                     
                 case Result.success(let value):
                     let cities : [City] = self.parserJSON(json: value)
-                    print(value)
                     self.weatherRequestDelegate.appDidReceiveData(cities: cities)
                     break
                 case Result.failure(let error):

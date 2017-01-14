@@ -8,11 +8,7 @@
 
 import UIKit
 
-extension Double {
-    func format(f: String) -> String {
-        return String.init(format: "%\(f)f", self)
-    }
-}
+
 
 class CityDetailsViewController: UIViewController {
     @IBOutlet weak var cityNameLabel: UILabel!

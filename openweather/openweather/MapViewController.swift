@@ -21,6 +21,8 @@ class MapViewController: UIViewController {
     var indicator : LoadIndicador!
     var cities : [City]!
     
+    let SHOW_CITIES_VIEW_SEGUE = "showCityTableView"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -57,8 +59,6 @@ class MapViewController: UIViewController {
         let touchLocation = gesture.location(in: self.map)
         self.pressedCoordinate = self.map.convert(touchLocation, toCoordinateFrom: self.map)
         
-        print(pressedCoordinate)
-
         self.addAnnotationToView()
         
     }
@@ -85,22 +85,33 @@ extension MapViewController : WeatherRequestDelegate{
         DispatchQueue.global().sync {
             self.indicator.stopLoading()
             self.cities = cities
-            self.performSegue(withIdentifier: "showCityTableView", sender: self)
+            self.performSegue(withIdentifier: SHOW_CITIES_VIEW_SEGUE , sender: self)
         }
         
     }
     
     func appDidReceiveError(error: Error) {
-        
+        DispatchQueue.global().sync {
+            self.showErrorPopup()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "showCityTableView" {
+        if segue.identifier == SHOW_CITIES_VIEW_SEGUE {
             let destinationViewController = segue.destination as! CitiesTableViewController
             destinationViewController.cities = self.cities
             self.present(destinationViewController, animated: true, completion: nil)
         }
+    }
+    
+    func showErrorPopup(){
+        
+        let alertController = UIAlertController(title: "Warning", message: "Couldn't reach server. Try again later.", preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
+        
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
