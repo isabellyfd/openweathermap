@@ -63,13 +63,13 @@ extension CitiesTableViewController : ILMInterstitialAdDelegate {
     
     func ilmInterstitialAdDidReceive(_ interstitialAd: ILMInterstitialAd!) {
         self.indicator.stopLoading()
-        interstitialAd.present(from: self.getRootViewController())
+        DispatchQueue.main.asyncAfter(deadline: (DispatchTime.now() + 0.5)) {
+            interstitialAd.present(from: self.navigationController)
+        }
+        
     }
     
-    func getRootViewController() -> UIViewController{
-        //[UIApplication sharedApplication].keyWindow.rootViewController
-        return (UIApplication.shared.keyWindow?.rootViewController)!
-    }
+    
     
 }
 
