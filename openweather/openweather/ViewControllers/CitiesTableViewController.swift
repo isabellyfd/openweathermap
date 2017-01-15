@@ -16,7 +16,7 @@ class CitiesTableViewController : UIViewController {
     
     let SHOW_DETAILS_SEGUE = "showDetails"
     
-    var newAd : ILMInterstitialAd!
+    var newAd : LocalAd!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -52,8 +52,7 @@ class CitiesTableViewController : UIViewController {
         self.tableView.reloadData()
         self.indicator.startLoading()
         
-        self.newAd = ILMInterstitialAd()
-        self.newAd.delegate = self
+        self.newAd = LocalAd(forInterstitialAdDelegate: self)
         self.newAd.load()
         
     }
