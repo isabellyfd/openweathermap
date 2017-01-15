@@ -16,7 +16,7 @@ class CitiesTableViewController : UIViewController {
     
     let SHOW_DETAILS_SEGUE = "showDetails"
     
-    var newAd : LocalAd!
+    var newAd : ILMInterstitialAd!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -52,7 +52,8 @@ class CitiesTableViewController : UIViewController {
         self.tableView.reloadData()
         self.indicator.startLoading()
         
-        self.newAd = LocalAd(forInterestialAdDelegate: self)
+        self.newAd = ILMInterstitialAd()
+        self.newAd.delegate = self
         self.newAd.load()
         
     }
@@ -62,8 +63,14 @@ extension CitiesTableViewController : ILMInterstitialAdDelegate {
     
     func ilmInterstitialAdDidReceive(_ interstitialAd: ILMInterstitialAd!) {
         self.indicator.stopLoading()
-        interstitialAd.present()
+        interstitialAd.present(from: self.getRootViewController())
     }
+    
+    func getRootViewController() -> UIViewController{
+        //[UIApplication sharedApplication].keyWindow.rootViewController
+        return (UIApplication.shared.keyWindow?.rootViewController)!
+    }
+    
 }
 
 extension CitiesTableViewController : UITableViewDelegate, UITableViewDataSource {
